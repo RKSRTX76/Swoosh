@@ -18,7 +18,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        android:src="@drawable/welcomescreenbg" />
+        android:src="@drawable/welcomescreenbg"
+        android:contentDescription="@string/welcome_page" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -30,7 +31,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/menu" />
+        app:layout_constraintTop_toTopOf="@+id/menu"
+        android:contentDescription="@string/logo" />
 
     <TextView
         android:id="@+id/textView"
@@ -38,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/montserrat"
-        android:text="GET READY"
+        android:text="@string/get_ready"
         android:textColor="@android:color/white"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/montserrat"
-        android:text="ON GOING ALL OUT"
+        android:text="@string/on_going_all_out"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +67,7 @@
         android:layout_marginTop="32dp"
         android:fontFamily="@font/montserrat"
         android:singleLine="false"
-        android:text="Find a team in your city and dominate the league"
+        android:text="@string/find_a_team_in_your_city_and_dominate_the_league"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="16sp"
@@ -74,14 +76,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/menu_button"
+        android:id="@+id/get_started"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/montserrat"
-        android:text="GET STARTED"
+        android:text="@string/get_started"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:backgroundTint="#64000000"
