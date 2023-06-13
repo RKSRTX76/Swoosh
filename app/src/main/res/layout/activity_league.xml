@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LeagueActivity">
+    tools:context=".Controller.LeagueActivity">
 
     <ImageView
         android:id="@+id/league_menu"
@@ -57,35 +57,38 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <ToggleButton
-            android:id="@+id/toggleButton6"
+            android:id="@+id/mensLeagueButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/league_buttons_style"
             android:fontFamily="@font/montserrat"
+            android:onClick="onMensClicked"
             android:text="@string/men"
             android:textColor="@color/white"
             android:textOff="@string/men"
             android:textOn="@string/men" />
 
         <ToggleButton
-            android:id="@+id/toggleButton7"
+            android:id="@+id/womesLeagueButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/league_buttons_style"
             android:fontFamily="@font/montserrat"
+            android:onClick="onWomensClicked"
             android:text="@string/women"
             android:textColor="@color/white"
             android:textOff="@string/women"
             android:textOn="@string/women" />
 
         <ToggleButton
-            android:id="@+id/toggleButton8"
+            android:id="@+id/coedLeagueButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/league_buttons_style"
             android:fontFamily="@font/montserrat"
+            android:onClick="onCoedClicked"
             android:text="@string/co_ed"
             android:textColor="@color/white"
             android:textOff="@string/co_ed"
