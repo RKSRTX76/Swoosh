@@ -7,21 +7,19 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import android.widget.ToggleButton
+import com.example.swoosh.Model.Player
 import com.example.swoosh.R
-import com.example.swoosh.Utilities.EXTRA_LEAGUE
-import com.example.swoosh.Utilities.EXTRA_SKILL
+import com.example.swoosh.Utilities.EXTRA_PLAYER
 
 class SkillActivity : AppCompatActivity() {
-    var league=""
-    var selectedLevel=""
+    lateinit var player: Player
     private  lateinit var beginer_level:ToggleButton
     private lateinit var  pro_level:ToggleButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
         //get that extra activity that we passeed in League Activity
-        league= intent.getStringExtra(EXTRA_LEAGUE).toString()
-        println(league)
+        player= intent.getParcelableExtra(EXTRA_PLAYER)!!
 
         //if one level selected deselect others
         beginer_level=findViewById(R.id.beginner_Button)
@@ -33,11 +31,11 @@ class SkillActivity : AppCompatActivity() {
         //connect to next xml
         val skillLeague:Button=findViewById(R.id.finish)
         skillLeague.setOnClickListener{
-            if(selectedLevel !=""){
+            if(player.skill !=""){
                 val skill_league=Intent(this,FinishActivity::class.java)
                 //store history of prev xml
-                 skill_league.putExtra(EXTRA_LEAGUE,league)
-                skill_league.putExtra(EXTRA_SKILL,selectedLevel)
+                 skill_league.putExtra(EXTRA_PLAYER,player)
+                                        //key         value
                 startActivity(skill_league)
             }
             else{
@@ -47,10 +45,10 @@ class SkillActivity : AppCompatActivity() {
     }
     private fun onBeginerButton() {
         pro_level.isChecked=false
-        selectedLevel="Beginer"
+        player.skill="Beginer"
     }
     private fun onProButton() {
         beginer_level.isChecked=false
-        selectedLevel="Pro"
+        player.skill="Pro"
     }
 }
