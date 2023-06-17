@@ -2,6 +2,7 @@ package com.example.swoosh.Controller
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.Toast
 import android.widget.ToggleButton
@@ -15,7 +16,20 @@ class LeagueActivity : BasicActivity() {  // inherit property of BasicActivity c
     private  lateinit var mensLeague:ToggleButton
     private  lateinit var womensLeague:ToggleButton
     private  lateinit var coedLeague:ToggleButton
-
+//   this part is for to store data at landscapemode
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    outState?.putParcelable(EXTRA_PLAYER,player)
+    }
+//-------------------------------
+    //case handle where if we rotate our screen if any previously saved data
+//    is present then only pass
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+            if (savedInstanceState != null){
+                player= savedInstanceState.getParcelable(EXTRA_PLAYER)!!
+            }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_league)

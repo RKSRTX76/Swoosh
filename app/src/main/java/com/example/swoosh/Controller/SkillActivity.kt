@@ -15,6 +15,21 @@ class SkillActivity : AppCompatActivity() {
     lateinit var player: Player
     private  lateinit var beginer_level:ToggleButton
     private lateinit var  pro_level:ToggleButton
+    //   this part is for to store data at landscapemode
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState?.putParcelable(EXTRA_PLAYER,player)
+    }
+    //-------------------------------
+    //case handle where if we rotate our screen if any previously saved data
+//    is present then only pass
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if(savedInstanceState !=null){
+            player= savedInstanceState.getParcelable(EXTRA_PLAYER)!!
+        }
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
